@@ -1,0 +1,29 @@
+body {
+    font-family: 'Helvetica';
+}
+
+.title {
+    font-size: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.textarea {
+    min-width: 500px;
+    min-height: 300px;
+    font-family: 'Helvetica';
+    font-size: 1.1rem;
+    border: 1px solid #aaa;
+    border-radius: 4px;
+}
+
+iframe {
+    font-family: 'Helvetica';
+}
+
+iframe body {
+    font-family: 'Helvetica';
+}
