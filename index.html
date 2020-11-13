@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="foldername/mystyles.css" ... >
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="foldername/mystyles.css" ... />
     <link rel="stylesheet" type="text/css" href="./style.css" media="screen" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <h1 class="title">Text Editor</h1>
-        <form>
-            <div class="button-container">
-                <button name="bold" id="bold" data-cmd="bold" onClick="document.execCommand('bold', false, null)">Bold</button>
-            </div>
-            <!-- <textarea type="text" id="text"></textarea> -->
-            <div id='text' class="textarea" contenteditable="true"><p>Edit now</p></div>
-            <!-- <input type="text"><strong>hello</strong></input> -->
-            <iframe id="text_frame" name="text_frame"></iframe>
-        </form>
+      <h1 class="title">Text Editor</h1>
+      <form>
+        <div class="button-container">
+          <button name="bold" id="bold" data-cmd="bold">Bold</button>
+          <button name="italic" id="italic" data-cmd="italic">Italic</button>
+          <button name="underline" id="underline" data-cmd="underline">Underline</button>
+          <button name="strikeThrough" id="strikeThrough" data-cmd="strikeThrough">Strikethrough</button>
+          <button name="justifyFull" id="justifyFull" data-cmd="justifyFull">Full</button>
+          <button name="justifyLeft" id="justifyLeft" data-cmd="justifyLeft">Left</button>
+          <button name="justifyRight" id="justifyRight" data-cmd="justifyRight">Right</button>
+        </div>
+        <div id="text" class="textarea" contenteditable="true">
+          <p>Edit now</p>
+        </div>
+      </form>
     </div>
     <script type="text/javascript" src="./index.js"></script>
-</body>
+  </body>
 </html>
