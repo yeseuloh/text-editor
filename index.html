@@ -10,19 +10,27 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="title">Text Editor</h1>
-      <form>
+      <div class="time" id="time"></div>
+      <div id="textarea" class="textarea" contenteditable="true" spellcheck="false">
+        <p></p>
+      </div>
+      <form id="form" class="disappear">
         <div class="button-container">
-          <button name="bold" id="bold" data-cmd="bold">Bold</button>
-          <button name="italic" id="italic" data-cmd="italic">Italic</button>
-          <button name="underline" id="underline" data-cmd="underline">Underline</button>
-          <button name="strikeThrough" id="strikeThrough" data-cmd="strikeThrough">Strikethrough</button>
-          <button name="justifyFull" id="justifyFull" data-cmd="justifyFull">Full</button>
-          <button name="justifyLeft" id="justifyLeft" data-cmd="justifyLeft">Left</button>
-          <button name="justifyRight" id="justifyRight" data-cmd="justifyRight">Right</button>
-        </div>
-        <div id="text" class="textarea" contenteditable="true">
-          <p>Edit now</p>
+          <button name="bold" id="bold">Bold</button>
+          <button name="italic" id="italic">Italic</button>
+          <button name="underline" id="underline">Underline</button>
+          <button name="strikeThrough" id="strikeThrough">
+            Strikethrough
+          </button>
+          <button name="justifyFull" id="justifyFull">Full</button>
+          <button name="justifyLeft" id="justifyLeft">Left</button>
+          <button name="justifyRight" id="justifyRight">Right</button>
+          <button name="insertOrderedList" id="insertOrderedList">
+            insertOrderedList
+          </button>
+          <button name="insertUnorderedList" id="insertUnorderedList">
+            insertUnorderedList
+          </button>
         </div>
       </form>
     </div>
