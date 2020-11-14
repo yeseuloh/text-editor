@@ -1,3 +1,5 @@
+document.getElementById("textarea").focus();
+
 document.getElementById("time").innerHTML = new Date();
 document.execCommand('styleWithCSS', false, null);
 
@@ -8,8 +10,13 @@ let form = document.getElementById('form');
 
 
 textarea.addEventListener('mouseup', function(e) {
+    console.log(window.getSelection().toString());
     if (window.getSelection().toString() !== "") {
         form.classList.replace('disappear', 'appear');
+    } else {
+        if (form.classList.value === 'appear') {
+            form.classList.replace('appear', 'disappear');
+        }
     }
 })
 

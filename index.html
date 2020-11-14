@@ -10,29 +10,36 @@
   </head>
   <body>
     <div class="container">
-      <div class="time" id="time"></div>
-      <div id="textarea" class="textarea" contenteditable="true" spellcheck="false">
-        <p></p>
-      </div>
-      <form id="form" class="disappear">
-        <div class="button-container">
-          <button name="bold" id="bold">Bold</button>
-          <button name="italic" id="italic">Italic</button>
-          <button name="underline" id="underline">Underline</button>
-          <button name="strikeThrough" id="strikeThrough">
-            Strikethrough
-          </button>
-          <button name="justifyFull" id="justifyFull">Full</button>
-          <button name="justifyLeft" id="justifyLeft">Left</button>
-          <button name="justifyRight" id="justifyRight">Right</button>
-          <button name="insertOrderedList" id="insertOrderedList">
-            insertOrderedList
-          </button>
-          <button name="insertUnorderedList" id="insertUnorderedList">
-            insertUnorderedList
-          </button>
+      <div class="notelist"></div>
+      <div class="noteedit">
+        <div class="time" id="time"></div>
+        <div
+          id="textarea"
+          class="textarea"
+          contenteditable="true"
+          spellcheck="false"
+        >
         </div>
-      </form>
+        <form id="form" class="disappear">
+          <div class="button-container">
+            <button name="bold" id="bold">Bold</button>
+            <button name="italic" id="italic">Italic</button>
+            <button name="underline" id="underline">Underline</button>
+            <button name="strikeThrough" id="strikeThrough">
+              Strikethrough
+            </button>
+            <button name="justifyFull" id="justifyFull">Full</button>
+            <button name="justifyLeft" id="justifyLeft">Left</button>
+            <button name="justifyRight" id="justifyRight">Right</button>
+            <button name="insertOrderedList" id="insertOrderedList">
+              insertOrderedList
+            </button>
+            <button name="insertUnorderedList" id="insertUnorderedList">
+              insertUnorderedList
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
     <script type="text/javascript" src="./index.js"></script>
   </body>

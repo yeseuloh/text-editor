@@ -16,8 +16,12 @@ form {
     min-height: 300px;
     font-family: 'Helvetica';
     font-size: 1.1rem;
-    border: 1px solid #aaa;
+    /* border: 1px solid #aaa; */
     border-radius: 4px;
+}
+
+.textarea:focus {
+    outline: none;
 }
 
 .appear {
@@ -26,4 +30,23 @@ form {
 
 .disappear {
     visibility: hidden;
+}
+
+.notelist {
+    width: 199px;
+    border-right: 1px solid #ddd;
+}
+
+.noteedit {
+    width: calc(100% - 200px);
+    padding: 20px 40px;
+}
+
+.container {
+    display: flex;
+}
+
+.time {
+    text-align: center;
+    color: #ccc;
 }
