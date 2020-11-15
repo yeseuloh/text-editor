@@ -1,15 +1,11 @@
 body {
     font-family: 'Helvetica';
     margin-top: 0;
+    margin-bottom: 0;
 }
 
 .title {
     font-size: 2rem;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
 }
 
 .textarea {
@@ -19,6 +15,7 @@ form {
     font-size: 1.1rem;
     /* border: 1px solid #aaa; */
     border-radius: 4px;
+    margin-top: 40px;
 }
 
 .textarea:focus {
@@ -27,6 +24,7 @@ form {
 
 .appear {
     visibility: visible;
+    position: absolute;
 }
 
 .disappear {
@@ -42,6 +40,7 @@ form {
 .noteedit {
     width: calc(100% - 200px);
     padding: 20px 40px;
+    position: relative;
 }
 
 .container {

@@ -10,9 +10,17 @@ let form = document.getElementById('form');
 
 
 textarea.addEventListener('mouseup', function(e) {
-    console.log(window.getSelection().toString());
+    // console.log(window.getSelection().toString());
     if (window.getSelection().toString() !== "") {
+        let fontSize = window.getComputedStyle(window.getSelection().anchorNode.parentElement, null).getPropertyValue('font-size');
+        fontSize = fontSize.replace('px', '');
+        console.log(fontSize);
+        console.log(window.getSelection().getRangeAt(0).getBoundingClientRect().top)
+        let top = window.getSelection().getRangeAt(0).getBoundingClientRect().top - fontSize - 10;
+        let left = window.getSelection().getRangeAt(0).getBoundingClientRect().left - 200;
         form.classList.replace('disappear', 'appear');
+        form.style.top = top + 'px';
+        form.style.left = left + 'px';
     } else {
         if (form.classList.value === 'appear') {
             form.classList.replace('appear', 'disappear');
