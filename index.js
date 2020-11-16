@@ -8,6 +8,7 @@ console.log(window.getSelection().toString());
 let textarea = document.getElementById('textarea');
 let form = document.getElementById('form');
 
+let noteArr = [];
 
 textarea.addEventListener('mouseup', function(e) {
     // console.log(window.getSelection().toString());
@@ -94,5 +95,14 @@ insertUnorderedList.addEventListener('click', function(e) {
     e.preventDefault();
     document.execCommand('insertUnorderedList', false, null);
     form.classList.replace('appear', 'disappear');
+})
+
+let newFile = document.getElementById('new');
+newFile.addEventListener('click', function(e) {
+    e.preventDefault();
+    let newNote = document.createElement('DIV');
+    newNote.classList.add('note');
+    newNote.innerHTML = "New note";
+    document.getElementById('notelist').appendChild(newNote);
 })
 

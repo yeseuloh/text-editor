@@ -1,7 +1,6 @@
 body {
     font-family: 'Helvetica';
-    margin-top: 0;
-    margin-bottom: 0;
+    margin: 0;
 }
 
 .title {
@@ -15,7 +14,7 @@ body {
     font-size: 1.1rem;
     /* border: 1px solid #aaa; */
     border-radius: 4px;
-    margin-top: 40px;
+    padding: 20px;
 }
 
 .textarea:focus {
@@ -37,9 +36,23 @@ body {
     height: 100vh;
 }
 
+.notelist-header {
+    border-bottom: 1px solid #ddd;
+    color: #888;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.note {
+    border-bottom: 1px solid #ddd;
+    padding: 20px;
+}
+
 .noteedit {
     width: calc(100% - 200px);
-    padding: 20px 40px;
+    /* padding: 20px 40px; */
+    padding: 0;
     position: relative;
 }
 
@@ -50,12 +63,19 @@ body {
 .time {
     text-align: center;
     color: #ccc;
+    padding: 20px;
 }
 
 button {
     border: none;
     background: #f3f3f3;
     padding: 8px;
+}
+
+#new {
+    background: none;
+    padding: 0;
+    color: #888;
 }
 
 .button-container {
