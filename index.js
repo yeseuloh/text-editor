@@ -14,9 +14,7 @@ textarea.addEventListener('mouseup', function(e) {
     if (window.getSelection().toString() !== "") {
         let fontSize = window.getComputedStyle(window.getSelection().anchorNode.parentElement, null).getPropertyValue('font-size');
         fontSize = fontSize.replace('px', '');
-        console.log(fontSize);
-        console.log(window.getSelection().getRangeAt(0).getBoundingClientRect().top)
-        let top = window.getSelection().getRangeAt(0).getBoundingClientRect().top - fontSize - 10;
+        let top = window.getSelection().getRangeAt(0).getBoundingClientRect().top - fontSize - 20;
         let left = window.getSelection().getRangeAt(0).getBoundingClientRect().left - 200;
         form.classList.replace('disappear', 'appear');
         form.style.top = top + 'px';
@@ -67,6 +65,13 @@ let justifyLeftBtn = document.getElementById('justifyLeft');
 justifyLeftBtn.addEventListener('click', function(e) {
     e.preventDefault();
     document.execCommand('justifyLeft', false, null);
+    form.classList.replace('appear', 'disappear');
+})
+
+let justifyCenterBtn = document.getElementById('justifyCenter');
+justifyCenterBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.execCommand('justifyCenter', false, null);
     form.classList.replace('appear', 'disappear');
 })
 
