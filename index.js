@@ -10,6 +10,8 @@ let form = document.getElementById('form');
 
 let noteArr = [];
 
+// Hover text editing buttons when text selected
+
 textarea.addEventListener('mouseup', function(e) {
     // console.log(window.getSelection().toString());
     if (window.getSelection().toString() !== "") {
@@ -26,6 +28,39 @@ textarea.addEventListener('mouseup', function(e) {
         }
     }
 })
+
+// Create a new file
+
+let newFile = document.getElementById('new');
+newFile.addEventListener('click', function(e) {
+    e.preventDefault();
+
+    let newNote = document.createElement('DIV');
+    document.getElementById('notelist-list').appendChild(newNote);
+    newNote.classList.add('note');
+    newNote.id = `${noteArr.length}`;
+    newNote.innerHTML = "New note";
+    newNote.addEventListener('click', function () {
+        var siblings = newNote.parentNode.childNodes;
+        for (i = 0; i < siblings.length; i++) {
+            if (siblings[i] !== newNote.id) {
+                siblings[i].style.backgroundColor = "#fff";
+            }
+        }
+        newNote.style.backgroundColor = "#eee";
+    })
+
+    noteArr.push({ revisedTime: new Date(), text: '', id: noteArr.length});
+})
+
+console.log(noteArr);
+
+// When an element is selected in notelist, change background colour
+const applyDark = (el) => {
+    el.style.background = "#eee";
+}
+
+// Text Editing Buttons
 
 let boldBtn = document.getElementById('bold');
 boldBtn.addEventListener('click', function(e) {
@@ -96,13 +131,3 @@ insertUnorderedList.addEventListener('click', function(e) {
     document.execCommand('insertUnorderedList', false, null);
     form.classList.replace('appear', 'disappear');
 })
-
-let newFile = document.getElementById('new');
-newFile.addEventListener('click', function(e) {
-    e.preventDefault();
-    let newNote = document.createElement('DIV');
-    newNote.classList.add('note');
-    newNote.innerHTML = "New note";
-    document.getElementById('notelist').appendChild(newNote);
-})
-
