@@ -36,6 +36,11 @@ body {
     height: 100vh;
 }
 
+.notelist-list {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
 .notelist-header {
     border-bottom: 1px solid #ddd;
     color: #888;
@@ -85,4 +90,12 @@ button {
     border: 1px solid #ddd;
     border-radius: 4px;
     box-shadow: 0 4px 8px rgba(154,160,185,.1), 0 6px 10px rgba(166,173,201,.2);
+}
+
+.active {
+    background: #eee;
+}
+
+.inactive {
+    background: #fff;
 }
