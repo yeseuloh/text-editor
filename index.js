@@ -1,11 +1,17 @@
-//Todo: only when user edits, edit revised time
+// Todo: 
+// - only when user edits, edit revised time (V)
+// - when saves, should tell user that it's saved
+// - notelist-list element content should display the text
+// - if user deletes a note, handle the id and array index 😬
+// - when the newest document is empty, the new post button turns lighter grey
+
+// - background colour change
+
 
 
 let noteArr = [];
 
 document.addEventListener("DOMContentLoaded", function(event) {
-  //do work
-  console.log("heey");
   document.getElementById("textarea").focus();
   document.getElementById("time").innerHTML = new Date();
 
@@ -18,9 +24,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 // Hover text editing buttons when text selected
 let textarea = document.getElementById("textarea");
 let form = document.getElementById("form");
-
 textarea.addEventListener("mouseup", function(e) {
-  // console.log(window.getSelection().toString());
   if (window.getSelection().toString() !== "") {
     let fontSize = window
       .getComputedStyle(window.getSelection().anchorNode.parentElement, null)
@@ -48,20 +52,28 @@ textarea.addEventListener("mouseup", function(e) {
   }
 });
 
-// Save the current text
+// Save the current text and revised time
 function saveText () {
   let currentNote = document.getElementsByClassName("active note")[0];
   let currentText = document.getElementById("textarea").innerHTML;
   noteArr[currentNote.id].text = currentText;
-  // noteArr[currentNote.id].revisedTime = new Date();
+  noteArr[currentNote.id].revisedTime = new Date();
+  document.getElementById('time').innerHTML = noteArr[currentNote.id].revisedTime;
+  currentNote.innerHTML = currentText;
 }
 
 // Create a new file
-
 let createNewFileButton = document.getElementById("new");
 createNewFileButton.addEventListener("click", function(e) {
   e.preventDefault();
-  saveText();
+  // saveText();
+  let currentNote = document.getElementsByClassName("active note")[0];
+  let currentText = document.getElementById("textarea").innerHTML;
+  console.log(currentText);
+  console.log(noteArr[currentNote.id].text);
+  if (currentText !== noteArr[currentNote.id].text ) {
+    saveText();
+  }
 
   // if the last note is not empty, create a new note
   if (noteArr[noteArr.length-1].text !== "") {
@@ -72,9 +84,7 @@ createNewFileButton.addEventListener("click", function(e) {
 // create a new post
 function createNote() {
   let currentNotes = document.getElementById("notelist-list").childNodes;
-  console.log(document.getElementById("notelist-list").childNodes);
   for (let note of currentNotes) {
-    console.log(note);
     if (note.classList.contains('active')) note.classList.replace('active', 'inactive');
     else note.classList.add('inactive');
   }
@@ -88,15 +98,21 @@ function createNote() {
 
   noteArr.push({ revisedTime: new Date(), text: "", id: noteArr.length });
   document.getElementById("textarea").innerHTML = "";
+  document.getElementById("time").innerHTML = noteArr[newNote.id].revisedTime;
 }
 
 // when a note is clicked, display in the textarea
 window.onclick = e => {
-  console.log(e.target.className);
   let clickedNote = e.target;
 
   if (clickedNote.classList.contains("note")) {
-    saveText();
+    let currentNote = document.getElementsByClassName("active note")[0];
+    let currentText = document.getElementById("textarea").innerHTML;
+    console.log(currentText);
+    console.log(noteArr[currentNote.id].text);
+    if (currentText !== noteArr[currentNote.id].text ) {
+      saveText();
+    }
 
     for (let sibling of clickedNote.parentNode.childNodes) {
       if (sibling.classList.contains("active")) {
@@ -112,11 +128,13 @@ window.onclick = e => {
       clickedNote.classList.add("active");
     }
 
-    let currentText = document.getElementById('textarea');
+    currentText = document.getElementById('textarea');
     currentText.innerHTML = noteArr[e.target.id].text;
+    currentTime = document.getElementById('time');
+    currentTime.innerHTML = noteArr[e.target.id].revisedTime;
+    currentText.autofocus;
     // let currentTextTime = document.getElementById('time');
     // currentTextTime.innerHTML = noteArr[e.target.id].revisedTime;
-    console.log("??")
   }
 }
 
