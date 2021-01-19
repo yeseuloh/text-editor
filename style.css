@@ -55,6 +55,12 @@ body {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    height: 30px;
+    line-height: 30px;
+}
+
+.note > div {
+    display: none;
 }
 
 .noteedit {

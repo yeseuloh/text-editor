@@ -1,4 +1,4 @@
-// Todo: 
+// Todo:
 // - only when user edits, edit revised time (V)
 // - when saves, should tell user that it's saved
 // - notelist-list element content should display the text
@@ -6,8 +6,6 @@
 // - when the newest document is empty, the new post button turns lighter grey
 
 // - background colour change
-
-
 
 let noteArr = [];
 
@@ -53,13 +51,17 @@ textarea.addEventListener("mouseup", function(e) {
 });
 
 // Save the current text and revised time
-function saveText () {
+function saveText() {
   let currentNote = document.getElementsByClassName("active note")[0];
-  let currentText = document.getElementById("textarea").innerHTML;
-  noteArr[currentNote.id].text = currentText;
+  let currentText = document.getElementById("textarea");
+  if (currentText.innerHTML.indexOf("<div>") == -1) {
+    noteArr[currentNote.id].text = currentText.innerHTML;
+  } else {
+    noteArr[currentNote.id].text = currentText.innerHTML.substring(0, currentText.innerHTML.indexOf("<div>"));
+  }
   noteArr[currentNote.id].revisedTime = new Date();
-  document.getElementById('time').innerHTML = noteArr[currentNote.id].revisedTime;
-  currentNote.innerHTML = currentText;
+  document.getElementById("time").innerHTML = noteArr[currentNote.id].revisedTime;
+  currentNote.innerHTML = currentText.innerHTML;
 }
 
 // Create a new file
@@ -68,15 +70,13 @@ createNewFileButton.addEventListener("click", function(e) {
   e.preventDefault();
   // saveText();
   let currentNote = document.getElementsByClassName("active note")[0];
-  let currentText = document.getElementById("textarea").innerHTML;
-  console.log(currentText);
-  console.log(noteArr[currentNote.id].text);
-  if (currentText !== noteArr[currentNote.id].text ) {
+  let currentText = document.getElementById("textarea");
+  if (currentText.innerHTML !== noteArr[currentNote.id].text) {
     saveText();
   }
 
   // if the last note is not empty, create a new note
-  if (noteArr[noteArr.length-1].text !== "") {
+  if (noteArr[noteArr.length - 1].text !== "") {
     createNote();
   }
 });
@@ -85,8 +85,9 @@ createNewFileButton.addEventListener("click", function(e) {
 function createNote() {
   let currentNotes = document.getElementById("notelist-list").childNodes;
   for (let note of currentNotes) {
-    if (note.classList.contains('active')) note.classList.replace('active', 'inactive');
-    else note.classList.add('inactive');
+    if (note.classList.contains("active"))
+      note.classList.replace("active", "inactive");
+    else note.classList.add("inactive");
   }
 
   let newNote = document.createElement("div");
@@ -110,7 +111,7 @@ window.onclick = e => {
     let currentText = document.getElementById("textarea").innerHTML;
     console.log(currentText);
     console.log(noteArr[currentNote.id].text);
-    if (currentText !== noteArr[currentNote.id].text ) {
+    if (currentText !== noteArr[currentNote.id].text) {
       saveText();
     }
 
@@ -128,15 +129,15 @@ window.onclick = e => {
       clickedNote.classList.add("active");
     }
 
-    currentText = document.getElementById('textarea');
+    currentText = document.getElementById("textarea");
     currentText.innerHTML = noteArr[e.target.id].text;
-    currentTime = document.getElementById('time');
+    currentTime = document.getElementById("time");
     currentTime.innerHTML = noteArr[e.target.id].revisedTime;
     currentText.autofocus;
     // let currentTextTime = document.getElementById('time');
     // currentTextTime.innerHTML = noteArr[e.target.id].revisedTime;
   }
-}
+};
 
 // Text Editing Buttons
 
