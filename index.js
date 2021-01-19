@@ -54,11 +54,7 @@ textarea.addEventListener("mouseup", function(e) {
 function saveText() {
   let currentNote = document.getElementsByClassName("active note")[0];
   let currentText = document.getElementById("textarea");
-  if (currentText.innerHTML.indexOf("<div>") == -1) {
-    noteArr[currentNote.id].text = currentText.innerHTML;
-  } else {
-    noteArr[currentNote.id].text = currentText.innerHTML.substring(0, currentText.innerHTML.indexOf("<div>"));
-  }
+  noteArr[currentNote.id].text = currentText.innerHTML;
   noteArr[currentNote.id].revisedTime = new Date();
   document.getElementById("time").innerHTML = noteArr[currentNote.id].revisedTime;
   currentNote.innerHTML = currentText.innerHTML;
